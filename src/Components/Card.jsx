@@ -1,6 +1,7 @@
 import React from 'react';
 
-function Card() {
+function Card({detail}) {
+    console.log(detail);
   return (
     <div>
           <div className="col mb-5">
@@ -13,15 +14,17 @@ function Card() {
                             <div className="card-body p-4">
                                 <div className="text-center">
                                   
-                                    <h5 className="fw-bolder">Special Item</h5>
+                                    <h5 className="fw-bolder">{detail.title}</h5>
+
+                                    <li>{detail.importance?(<div className="d-flex justify-content-center small text-warning mb-2">
+                                        <div className="bi-star-fill"></div>
+                                        <div className="bi-star-fill"></div>
+                                        <div className="bi-star-fill"></div>
+                                        <div className="bi-star-fill"></div>
+                                        <div className="bi-star-fill"></div>
+                                    </div>):(<div className="bi-star-fill"></div>)}</li>
                                    
-                                    <div className="d-flex justify-content-center small text-warning mb-2">
-                                        <div className="bi-star-fill"></div>
-                                        <div className="bi-star-fill"></div>
-                                        <div className="bi-star-fill"></div>
-                                        <div className="bi-star-fill"></div>
-                                        <div className="bi-star-fill"></div>
-                                    </div>
+                                    
                                   
                                     <span className="text-muted text-decoration-line-through">$20.00</span>
                                     $18.00
