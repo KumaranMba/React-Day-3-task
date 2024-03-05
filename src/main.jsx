@@ -2,12 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
 
-
+// datas to  be used by the app component
 let datas =[{id:1,
             title:"Fancy Product",
             importance: false,
             price1: "",
-            price2:"$40.00-$80.00"},
+            price2:"$40.00 - $80.00"},
             {id:2,
             title:"Special Item",
             importance: true,
@@ -47,4 +47,4 @@ let datas =[{id:1,
              }];
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <App datas ={datas} />)
+  <App datas ={datas} />);       // passing props to the component App

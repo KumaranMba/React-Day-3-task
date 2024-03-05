@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import Card from './Components/Card';
 
-function App({datas}) {
-    console.log(datas);
-    const[count,setCount] = useState(0);
+function App({datas}) {                           // datas is passed as a prop to the app component.
+    
+    const[count,setCount] = useState(0);          // state and setter are used to create a count in cart and initialized is done by using hook.
   return (
     // <!-- Navigation-->
     <div>
-       
+
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container px-4 px-lg-5">
                 <a className="navbar-brand" href="#!">Start Bootstrap</a>
@@ -36,7 +36,7 @@ function App({datas}) {
                 </div>
             </div>
         </nav>
-
+        
         <header className="bg-dark py-5">
             <div className="container px-4 px-lg-5 my-5">
                 <div className="text-center text-white">
@@ -47,25 +47,22 @@ function App({datas}) {
         </header>
 
         <section className= " py-5">
-            <div className="container d-flex flex-wrap justify-content-evenly px-4 px-lg-5 mt-5">
-                <div className=" row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 ">
-                
-                <ul className="list-unstyled d-flex">{
+            <div className="container px-4 px-lg-5 mt-5">
+                <div className=" row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center ">
+                {
                     datas.map((detail)=>(
                         <Card key={detail.id} detail={detail} count={count} setCount ={setCount} />
                     ))
 
-                }</ul>
-
-                
+                }
              </div>
             </div>
-          
-        </section>
+
+       </section>
          <footer class="py-5 bg-dark">
          <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p></div>
          </footer>
-
+         
     </div>
   )
 }
