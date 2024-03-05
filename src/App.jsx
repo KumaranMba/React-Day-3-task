@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Card from './Components/Card';
 
 function App({datas}) {
     console.log(datas);
+    const[count,setCount] = useState(0);
   return (
     // <!-- Navigation-->
     <div>
@@ -29,7 +30,7 @@ function App({datas}) {
                         <button className="btn btn-outline-dark" type="submit">
                             <i className="bi-cart-fill me-1"></i>
                             Cart
-                            <span className="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                            <span className="badge bg-dark text-white ms-1 rounded-pill">{count}</span>
                         </button>
                     </form>
                 </div>
@@ -45,28 +46,25 @@ function App({datas}) {
             </div>
         </header>
 
-        <section className="py-5">
-            <div className="container px-4 px-lg-5 mt-5">
-                <div className="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+        <section className= " py-5">
+            <div className="container d-flex flex-wrap justify-content-evenly px-4 px-lg-5 mt-5">
+                <div className=" row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 ">
                 
-                <ul>{
+                <ul className="list-unstyled d-flex">{
                     datas.map((detail)=>(
-                        <Card key={detail.id} detail={detail}/>
+                        <Card key={detail.id} detail={detail} count={count} setCount ={setCount} />
                     ))
 
                 }</ul>
 
-
-
                 
-                
-
-
              </div>
             </div>
           
         </section>
-          
+         <footer class="py-5 bg-dark">
+         <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p></div>
+         </footer>
 
     </div>
   )
